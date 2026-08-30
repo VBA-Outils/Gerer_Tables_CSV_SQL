@@ -1,4 +1,4 @@
-# 📊 Gestion avancée de tables dans des tableaux structurés Excel (paramétrage, clients, commandes, etc)
+# 📊 Gestion avancée de tables dans des tableaux structurés Excel (paramétrage, référentiels, clients, etc)
 
 ![Langage](https://img.shields.io/badge/langage-VBA-blue)
 ![Excel](https://img.shields.io/badge/Excel-Tables%20structurées-green)
@@ -8,25 +8,25 @@ Gerer-Tables-Parametrage est un outil Excel/VBA permettant de gérer des **table
 
 Ce projet vise à offrir une manière fiable, cohérente et automatisée de manipuler des données tabulaires dans Excel.
 
-Ce fichier peut être utilisé pour gérer des tables de paramétrages d'un projet ave la possibilité d'importer depuis des fichiers CSV le contenu des tables, de les exporter, de comparer un fichier CSV avec le contenu d'une table du fichier Excel.
+Ce fichier peut être utilisé pour gérer des tables de paramétrages d'un projet avec la possibilité d'importer depuis des fichiers CSV le contenu des tables, de les exporter, de comparer un fichier CSV avec le contenu d'une table du fichier Excel.
 
 ---
 
 ## 🧩 Fonctionnalités principales
 
-### ✔️ Gestion des tables automatisées
-- Création automatique des tables selon un contrat d’interface
-- Vérification des colonnes et des formats
+### ✔️ Création et mise-à-jour des tables automatisée à partir d'un contrat d'interface
+- Création automatique des tables selon un contrat d’interface qui définit les types de données à l'instar de PostGreSql.
+- Vérification dynamique des saisies du contrat d'interface lors de la saisie.
 
 ### ✔️ Importer un fichier CSV dans une table Excel
-- Lecture d’un fichier CSV
-- Vérification de la conformité avec le contrat
-- Insertion des données dans la table cible
+- Lecture d’un fichier CSV avec gestion des séparateurs de lignes, séparateurs CSV, encodage du fichier, présence d'en-tête, etc.
+- Vérification de la conformité avec le contrat d'interface
+- Insertion des données dans la table cible par annule et remplace.
 - Rapport d’erreurs (colonnes manquantes, formats incorrects)
 
 ### ✔️ Exporter une table vers un fichier CSV
 - Export propre et conforme au contrat d'interface
-- Gestion des séparateurs (point-virgule, tabulation, etc), des délimiteurs de texte, de l'encodage, des délimiteurs de lignes (CR/LF) 
+- Gestion des séparateurs (point-virgule, tabulation, etc), des délimiteurs de texte, de l'encodage, des délimiteurs de lignes (CR/LF)
 - Option d’inclure ou non les en‑têtes
 
 ### ✔️ Exporter une table Excel sous forme de requête SQL "INSERT INTO"
@@ -39,6 +39,18 @@ Ce fichier peut être utilisé pour gérer des tables de paramétrages d'un proj
 - Charger un fichier CSV dans un nouveau classeur
 - Comparer le contenu des tables
 - Rapport de comparaison (lignes en différence, écarts des valeurs dans une colonne)
+- Réactualiser le contenu de la table du 1er fichier à partir du 2ème fichier (au choix : lignes ajoutées, lignes supprimées, valeurs différentes) avec colorisation possible des écarts.
+
+### ✔️ Vérifier la saisie d'un table en fonction de l'exportation (CSV ou SQL)
+- Contrôler le format des données, leur valeur par rapport au type de la donnée.
+- Détecter les doublons dans les clés primaires.
+- Contrôler que les clés étrangères existent.
+
+### ✔️ Dupliquer un modèle de données entre 2 classeurs
+- Cette option permet de gérer les montées de version des macros VBA. Au lieu d'insérer toutes les modifications à la main dans les fichiers existants, le modèle de données du classeur avec une ancienne version des macros peut être entièrement recopié dans le classeur avec la nouvelle version des macros.
+- Recopier le contrat d'interface du classeur 1 vers le classeur 2.
+- Créer les nouvelles tables dans le classeur 2.
+- Recopier le contenu des tables.
 
 ---
 
